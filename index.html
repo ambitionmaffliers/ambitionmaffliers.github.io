@@ -24,34 +24,41 @@
 
 	<body class="bg-light">
     <div class="container">
-      <div class="py-5 text-center">
-        <h2>Port du masque dans la communauté de communes Carnelle Pays-de-France</h2>
+      <div class="py-5 text-center" style="padding-bottom:0px;margin-bottom:0px;">
+        <h2 class="text-info">Port du masque dans la communauté de communes Carnelle Pays-de-France</h2>
         <h2>Carte collaborative</h3>
-          <p class="lead">Pour proposer une modification ou signaler une erreur, vous pouvez nous contacter à <a href="mailto:uneambitionpourmaffliers@gmail.com">uneambitionpourmaffliers@gmail.com</a><br>ou participer directement <a href="https://github.com/ambitionmaffliers/ambitionmaffliers.github.io">sur github</a>.</p>
-
-		<div id="map"></div>
+          <p class="lead">Pour proposer une modification ou signaler une erreur, vous pouvez nous contacter à <a href="mailto:uneambitionpourmaffliers@gmail.com">uneambitionpourmaffliers@gmail.com</a><br>ou participer directement <a href="https://github.com/ambitionmaffliers/ambitionmaffliers.github.io">sur github</a>.
+          <br><a href="#moreinfo"><b>&darr; Plus d'informations</b></a></p>
+      </div>
     </div>
+		<div id="map" class=".container-l"></div>
 		<!-- include our own javascript -->
 		<script src="leaflet-example.js"></script>
-    <div class="card">
-      <div class="card-body">
-        <h4>Liste des écoles et gares intégrées à la carte</h3>
-        <ul>
-          <li>École du Cèdre (Maffliers)</li>
-          <li>Gare de Montsoult</li>
-        </ul>
+    <div class="container">
+      <div class="py-5">
+
+        <div class="card" id="moreinfo">
+          <div class="card-body">
+            <h4>Informations légales utilisées pour constuire cette carte :</h3>
+            Afin de tenir compte de la fréquentation des gares du Val-d’Oise, de leurs abords, et des nombreux déplacements de voyageurs entre le département et Paris et la petite couronne, au sein desquels les niveaux d’incidence sont supérieurs à 70, le port du masque sera obligatoire pour toutes les personnes de onze ans et plus dans toutes les gares du Val-d’Oise et à leurs abords, dans un périmètre de deux cents mètres autour de leurs entrées et sortie.<br> Source : <a href="https://www.sarcelles.fr/images/actualites/P095_20200828_Port_du_masque_-_Gares_et_abords_.pdf">Arrêté préfectoral 2020-626</a><br><br>
+            En outre, compte tenu du retour à une importante fréquentation des abords des établissements d’enseignement par une population appartenant majoritairement aux tranches d’âge au sein desquelles la circulation du virus est forte, le port du masque sera obligatoire pour toutes les personnes de onze ans et plus aux abords de tous les établissements d’enseignement (écoles maternelles et primaires, collèges, lycées et établissements d’enseignement supérieur) du Val-d’Oise, dans un périmètre de deux cents mètres autour de leurs entrées et sorties.<br> Source : <a href="https://www.sarcelles.fr/images/actualites/P095_20200828_Port_du_masque_-_Etablissements_denseignement.pdf">Arrêté prefectoral 2020-627</a>
+            <br><br>
+            Ces obligations s’appliqueront à partir du lundi 31 août à 6H00 s’agissant des gares et de leurs abords et du mardi 1er septembre à 7H00 s’agissant des abords des établissements d’enseignement, et ce pour une durée d'un mois.
+          </div>
+        </div>
+        <br>
+        <div class="card" >
+          <div class="card-body">
+            <h4>Liste des écoles et gares intégrées à la carte</h3>
+            <ul>
+              <li>École du Cèdre (Maffliers)</li>
+              <li>Gare de Montsoult</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
-    <br>
-    <div class="card">
-      <div class="card-body">
-        <h4>Informations légales utilisées pour constuire cette carte :</h3>
-        Afin de tenir compte de la fréquentation des gares du Val-d’Oise, de leurs abords, et des nombreux déplacements de voyageurs entre le département et Paris et la petite couronne, au sein desquels les niveaux d’incidence sont supérieurs à 70, le port du masque sera obligatoire pour toutes les personnes de onze ans et plus dans toutes les gares du Val-d’Oise et à leurs abords, dans un périmètre de deux cents mètres autour de leurs entrées et sortie.<br> Source : <a href="https://www.sarcelles.fr/images/actualites/P095_20200828_Port_du_masque_-_Gares_et_abords_.pdf">Arrêté préfectoral 2020-626</a><br><br>
-        En outre, compte tenu du retour à une importante fréquentation des abords des établissements d’enseignement par une population appartenant majoritairement aux tranches d’âge au sein desquelles la circulation du virus est forte, le port du masque sera obligatoire pour toutes les personnes de onze ans et plus aux abords de tous les établissements d’enseignement (écoles maternelles et primaires, collèges, lycées et établissements d’enseignement supérieur) du Val-d’Oise, dans un périmètre de deux cents mètres autour de leurs entrées et sorties.<br> Source : <a href="https://www.sarcelles.fr/images/actualites/P095_20200828_Port_du_masque_-_Etablissements_denseignement.pdf">Arrêté prefectoral 2020-627</a>
-        <br><br>
-        Ces obligations s’appliqueront à partir du lundi 31 août à 6H00 s’agissant des gares et de leurs abords et du mardi 1er septembre à 7H00 s’agissant des abords des établissements d’enseignement, et ce pour une durée d'un mois.
-      </div>
-    </div>
+
 
 
 	</body>
