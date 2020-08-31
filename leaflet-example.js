@@ -1,94 +1,86 @@
-<!DOCTYPE HTML>
-<html lang="fr">
-  <head>
-     <!-- Required meta tags -->
-     <meta charset="utf-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+/*
+ the script mus be loaded after the map div is defined.
+ otherwise this will not work (we would need a listener to
+ wait for the DOM to be fully loaded).
 
-     <!-- Bootstrap CSS -->
-     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+ Just put the script tag below the map div.
 
-    <title>Carte citoyenne collaborative - Port obligatoire du masque dans la Communauté de communes Carnelle Pays-de-France</title>
+ The source code below is the example from the leaflet start page.
+ */
 
-		<!-- include leaflet css and javascript -->
-		<link rel="stylesheet" crossorigin=""
-				href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
-		<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet-src.js"
-						crossorigin=""></script>
+var map = L.map('map').setView([49.07732194995885, 2.310714630297644], 17.5);
 
-		<!-- include our own css -->
-		<link rel="stylesheet" href="leaflet-example.css" />
+L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+		attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);
 
-		<!-- we include the javascript at the bottom, see below -->
-	</head>
+/** MAPBOX TILES
+L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    maxZoom: 19,
+    id: 'mapbox/streets-v11',
+    tileSize: 512,
+    zoomOffset: -1,
+    accessToken: 'pk.eyJ1IjoibWljaGFlbGJpZGVhdWx0IiwiYSI6ImNrZWZmeTcwazB1YTcyeWtmaGNnNXIxcnkifQ.WkqdFVGKfazOc3zjgSzVOw'
+}).addTo(map);
+*/
 
-	<body class="bg-light">
-    <div class="container">
-      <div class="py-5 text-center" style="padding-bottom:0px;margin-bottom:0px;">
-        <h2 class="text-info">Port du masque dans la communauté de communes Carnelle Pays-de-France</h2>
-        <h2>Carte collaborative</h3>
-          <p class="lead">Pour proposer une modification ou signaler une erreur, vous pouvez nous contacter à <a href="mailto:uneambitionpourmaffliers@gmail.com">uneambitionpourmaffliers@gmail.com</a><br>ou participer directement <a href="https://github.com/ambitionmaffliers/ambitionmaffliers.github.io">sur github</a>.
-          <br><a href="#moreinfo"><b>&darr; Plus d'informations</b></a></p>
-      </div>
-    </div>
-		<div id="map" class=".container-l"></div>
-		<!-- include our own javascript -->
-		<script src="leaflet-example.js"></script>
-    <div class="container">
-      <div class="py-5">
+L.circle([49.07732194995885, 2.310714630297644], {radius: 200}).addTo(map);
 
-        <div class="card" id="moreinfo">
-          <div class="card-body">
-            <h4>Informations légales utilisées pour constuire cette carte :</h3>
-            Afin de tenir compte de la fréquentation des gares du Val-d’Oise, de leurs abords, et des nombreux déplacements de voyageurs entre le département et Paris et la petite couronne, au sein desquels les niveaux d’incidence sont supérieurs à 70, le port du masque sera obligatoire pour toutes les personnes de onze ans et plus dans toutes les gares du Val-d’Oise et à leurs abords, dans un périmètre de deux cents mètres autour de leurs entrées et sortie.<br> Source : <a href="https://www.sarcelles.fr/images/actualites/P095_20200828_Port_du_masque_-_Gares_et_abords_.pdf">Arrêté préfectoral 2020-626</a><br><br>
-            En outre, compte tenu du retour à une importante fréquentation des abords des établissements d’enseignement par une population appartenant majoritairement aux tranches d’âge au sein desquelles la circulation du virus est forte, le port du masque sera obligatoire pour toutes les personnes de onze ans et plus aux abords de tous les établissements d’enseignement (écoles maternelles et primaires, collèges, lycées et établissements d’enseignement supérieur) du Val-d’Oise, dans un périmètre de deux cents mètres autour de leurs entrées et sorties.<br> Source : <a href="https://www.sarcelles.fr/images/actualites/P095_20200828_Port_du_masque_-_Etablissements_denseignement.pdf">Arrêté prefectoral 2020-627</a>
-            <br><br>
-            Ces obligations s’appliqueront à partir du lundi 31 août à 6H00 s’agissant des gares et de leurs abords et du mardi 1er septembre à 7H00 s’agissant des abords des établissements d’enseignement, et ce pour une durée d'un mois.
-          </div>
-        </div>
-        <br>
-        <div class="card" >
-          <div class="card-body">
-            <h4>Liste des écoles et gares intégrées à la carte</h3>
-            <ul>
-              <li>Gare de Montsoult</li>
-              <li>Ecole élémentaire Louis Jouvet (Luzarches)</li>
-              <li>Ecole maternelle Marie Noël (Viarmes)</li>
-              <li>Ecole primaire André Jumentier (Mareil-en-France)</li>
-              <li>Ecole primaire du Bois Bonnet (Asnières-sur-Oise)</li>
-              <li>Ecole élémentaire Albert Boucher (Belloy-en-France)</li>
-              <li>Ecole élémentaire Val d'Ysieux (Chaumontel)</li>
-              <li>Ecole primaire Les Châtaigniers (Seugy)</li>
-              <li>Ecole primaire Alain Fournier (Le Plessis-Luzarches)</li>
-              <li>Ecole élémentaire privée Les petites souris de Montessori (Viarmes)</li>
-              <li>Ecole primaire Jules Ferry (Montsoult)</li>
-              <li>Ecole primeire les Quatre Ormes (Baillet-en-France)</li>
-              <li>Ecole élémentaire privée l'espérance (Chaumontel)</li>
-              <li>Ecole primaire Yann Arthus-Bertrand Les Camélias (Villaines-sous-Bois)</li>
-              <li>Ecole primaire Le Cèdre (Maffliers)</li>
-              <li>Ecole maternelle Rosemonde Gérard (Luzarches)</li>
-              <li>Ecole élémentaire Langevin-Wallon (Saint-Martin-du-Tertre)</li>
-              <li>Ecole primaire Blanche de Castille (Asnières-sur-Oise)</li>
-              <li>Ecole maternelle Albert Boucher (Belloy-en-France)</li>
-              <li>Ecole élémentaire Louis Pergaud (Viarmes)</li>
-              <li>Ecole primaire Alphonse Daudet (Montsoult)</li>
-              <li>Ecole maternelle Pauline Kergomard (Saint-Martin-du-Tertre)</li>
-              <li>Ecole maternelle Chaumontel (Chaumontel)</li>
-              <li>Collège Blaise Pascal (Viarmes)</li>
-              <li>Collège Marcel Pagnol (Montsoult)</li>
-              <li>Collège Anna de Noailles (Luzarches)</li>
-              <li>Lycée professionnel Jean Mermoz (Montsoult)</li>
-              <li>Lycée Gérard de Nerval (Luzarches)</li>
-              <li>Collège Aristide Briand (Domont)</li>
-              <li>Lycée George Sand (Domont)</li>
-              <li>Collège Saint-Pie X (Domont)</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
+L.marker([49.07732194995885, 2.310714630297644]).addTo(map)
+		.bindPopup('Portail maternelle')
 
+map.on('click', function(e){
+  var coord = e.latlng;
+  var lat = coord.lat;
+  var lng = coord.lng;
+  console.log("You clicked the map at latitude: " + lat + " and longitude: " + lng);
+  });
 
+L.circle([49.07679310408853, 2.3103958368301396], {radius: 200}).addTo(map);
 
-	</body>
-</html>
+L.marker([49.07679310408853, 2.3103958368301396]).addTo(map)
+		.bindPopup('Portail garderie')
+
+L.circle([49.07715152523085, 2.3111253976821904], {radius: 200}).addTo(map);
+
+L.marker([49.07715152523085, 2.3111253976821904]).addTo(map)
+		.bindPopup('Portail élementaire')
+
+L.circle([49.066116590638835, 2.3222833871841435], {radius: 200}).addTo(map);
+
+L.marker([49.066116590638835, 2.3222833871841435]).addTo(map)
+		.bindPopup('Gare de Montsoult-Maffliers')
+
+// Open data Établissements scolaires CC Carnelle Pays de France
+		L.circle([49.1099016273,2.42469053839], {radius: 200}).addTo(map);
+		L.circle([49.1264141641,2.36877067593], {radius: 200}).addTo(map);
+		L.circle([49.0682859288,2.42630017483], {radius: 200}).addTo(map);
+		L.circle([49.1472919469,2.40123049253], {radius: 200}).addTo(map);
+		L.circle([49.0893154448,2.36717004973], {radius: 200}).addTo(map);
+		L.circle([49.1238540934,2.43165938136], {radius: 200}).addTo(map);
+		L.circle([49.1205728127,2.39381999648], {radius: 200}).addTo(map);
+		L.circle([49.1001045977,2.44925941156], {radius: 200}).addTo(map);
+		L.circle([49.1251363392,2.36549004328], {radius: 200}).addTo(map);
+		L.circle([49.0713062252,2.31993995818], {radius: 200}).addTo(map);
+		L.circle([49.0653104824,2.30004646649], {radius: 200}).addTo(map);
+		L.circle([49.1214298847,2.43066951199], {radius: 200}).addTo(map);
+		L.circle([49.0762171373,2.35678949022], {radius: 200}).addTo(map);
+		L.circle([49.0772453209,2.31063956956], {radius: 200}).addTo(map);
+		L.circle([49.1145538271,2.42508953489], {radius: 200}).addTo(map);
+		L.circle([49.1095246265,2.35014051806], {radius: 200}).addTo(map);
+		L.circle([49.1336952075,2.35537030734], {radius: 200}).addTo(map);
+		L.circle([49.089291316,2.36753998597], {radius: 200}).addTo(map);
+		L.circle([49.1265657934,2.36733988936], {radius: 200}).addTo(map);
+		L.circle([49.0719479554,2.30963972166], {radius: 200}).addTo(map);
+		L.circle([49.1043088413,2.34206044951], {radius: 200}).addTo(map);
+		L.circle([49.1237508881,2.43189066404], {radius: 200}).addTo(map);
+		L.circle([49.1250341992,2.3662406774], {radius: 200}).addTo(map);
+		L.circle([49.0681496473,2.32431945522], {radius: 200}).addTo(map);
+		L.circle([49.1086466034,2.42341024434], {radius: 200}).addTo(map);
+		L.circle([49.0677904721,2.32265047862], {radius: 200}).addTo(map);
+		L.circle([49.1081236312,2.42498006837], {radius: 200}).addTo(map);
+// Collèges et lycées Domont
+		L.circle([49.0342597304,2.33961947374], {radius: 200}).addTo(map);
+		L.circle([49.0303598814,2.34092990473], {radius: 200}).addTo(map);
+		L.circle([49.0130937801,2.31802003947], {radius: 200}).addTo(map);
