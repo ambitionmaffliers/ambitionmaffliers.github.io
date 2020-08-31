@@ -14,17 +14,6 @@ L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 		attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
-/** MAPBOX TILES
-L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-    maxZoom: 19,
-    id: 'mapbox/streets-v11',
-    tileSize: 512,
-    zoomOffset: -1,
-    accessToken: 'pk.eyJ1IjoibWljaGFlbGJpZGVhdWx0IiwiYSI6ImNrZWZmeTcwazB1YTcyeWtmaGNnNXIxcnkifQ.WkqdFVGKfazOc3zjgSzVOw'
-}).addTo(map);
-*/
-
 L.circle([49.07732194995885, 2.310714630297644], {radius: 200}).addTo(map);
 
 L.marker([49.07732194995885, 2.310714630297644]).addTo(map)
